@@ -1,0 +1,35 @@
+body {
+    font-family: 'Playfair Display', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    font-weight: bold;
+    color: #333;
+}
+
+.table {
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+.table th {
+    background-color: #000;
+    color: #fff;
+}
+
+.table td {
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.table .btn {
+    font-size: 0.875rem;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
