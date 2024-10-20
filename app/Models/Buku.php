@@ -10,4 +10,12 @@ class Buku extends Model
     use HasFactory;
 
     protected $table = 'books';
+
+     // Menambahkan fillable attributes
+     protected $fillable = [
+        'judul', 
+        'penulis', 
+        'harga', 
+        'tgl_terbit',
+    ];
 }

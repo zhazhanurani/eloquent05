@@ -31,7 +31,7 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
+        return view('buku.create');
     }
 
     /**
@@ -39,7 +39,14 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $buku = new Buku();
+        $buku->judul = $request->judul;
+        $buku->penulis = $request->penulis;
+        $buku->harga = $request->harga;
+        $buku->tgl_terbit = $request->tgl_terbit;
+        $buku->save();
+
+        return redirect('/buku');
     }
 
     /**
@@ -55,7 +62,8 @@ class BooksController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        return view('buku.edit', compact('buku'));
     }
 
     /**
@@ -63,7 +71,10 @@ class BooksController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        $buku->update($request->only(['judul','penulis','harga','tgl_terbit']));
+
+        return redirect()->route('buku.index')->with('success', 'Buku berhasil diupdate');
     }
 
     /**
@@ -71,6 +82,9 @@ class BooksController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $buku = buku::find($id);
+        $buku->delete();
+
+        return redirect('/buku');
     }
 }

@@ -14,4 +14,10 @@ use App\Http\Controllers\BooksController;
 |
 */
 
-Route::get('/buku', [BooksController::class,'index']);
+Route::get('/buku', [BooksController::class,'index'])->name('buku.index');
+Route::get('/buku/create', [BooksController::class,'create'])->name('buku.create');
+Route::post('/buku', [BooksController::class,'store'])->name('buku.store');
+Route::delete('/buku/{id}', [BooksController::class,'destroy'])->name('buku.destroy');
+Route::get('/buku/{id}/edit', [BooksController::class,'edit'])->name('buku.edit');
+Route::post('/buku/{id}/update', [BooksController::class,'update'])->name('buku.update');
+

@@ -15,6 +15,7 @@
 
 <div class="mt-5">
     <h2 class="text-center mb-4">Daftar Buku</h2>
+    <a href="{{route('buku.create')}}" class = "btn btn-primary float-end">Tambah Buku</a>
     <table class="table table-stripped">
         <thead>
             <tr>
@@ -34,9 +35,21 @@
                 <td>{{ $buku->penulis}}</td>
                 <td>{{ "Rp. ".number_format($buku->harga, 2, ',', ',')}}</td>
                 <td>{{ \Carbon\Carbon::parse($buku->tgl_terbit)->format('d-m-Y') }}</td>
-                <td>
-                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                <td class="d-flex justify-content-start">
+                     <!-- mengatur agar edit dan delete sejajar -->
+                    
+                    <form action="{{route('buku.destroy', $buku->id ) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="return confirm('Yakin nih mau di hapus? ;D')" type="submit"
+                        class="btn btn-danger">
+                            Hapus</button>
+
+                    </form>
+
+                    
+                    <a href="{{route('buku.edit', $buku->id)}}" class="btn btn-success ms-2">Edit</a>
+
                 </td>
             </tr>
             @endforeach
