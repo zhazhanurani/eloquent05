@@ -17,5 +17,13 @@ class Buku extends Model
         'penulis', 
         'harga', 
         'tgl_terbit',
+        
     ];
+
+    protected $dates = [
+        'tgl_terbit',
+    
+    ];
+
+    
 }

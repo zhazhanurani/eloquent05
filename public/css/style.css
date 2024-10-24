@@ -137,3 +137,9 @@ a:hover {
     font-size: 14px;
 }
 
+.alert.hide {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+

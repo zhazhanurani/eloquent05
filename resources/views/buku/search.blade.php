@@ -13,6 +13,17 @@
 
 @section('content')
 
+@if(count($data_buku))
+    <div class="alret-success"> Ditemukan <strong>{{count($data_buku)}}</strong>
+        data dengan kata: <strong>{{ $cari }}</strong></div>
+            <!-- Tombol kembali -->
+    <a href="/buku" class="btn btn-success">Kembali</a>
+
+@else
+    <div class="alert alert-warning"><h4>Data {{ $cari }} tidak ditemukan </h4>
+    <a href="/buku" class="btn btn-warning">Kembali</a></div>
+@endif
+
 <div class="mt-5">
     
     @if(Session::has('pesan'))
@@ -26,7 +37,7 @@
     <div class="alert alert-info alert-dismissible fade show" role="alert" style="font-size: 1.5rem; text-align: center;">
         {{ session('pesanUpdate') }}
     </div>
-    @endif
+    @endif 
 
     <script>
     // Menghilangkan alert setelah 5 detik
@@ -45,7 +56,7 @@
 
 
     <h2 class="text-center mb-4">Daftar Buku</h2>
-
+    
     <form action="{{route('buku.search')}}" method="get">
         @csrf
         <input type="text" name="kata" class="form-control" placeholder="Cari..." 
@@ -93,6 +104,8 @@
             @endforeach
         </tbody>
     </table>
+
+
     <!-- menambahkan pagination-->
     <div>{{ $data_buku->links('pagination::bootstrap-5') }}</div>
     <!-- Menampilkan jumlah data buku-->
@@ -101,6 +114,9 @@
     <!-- Menampilkan total harga semua buku -->
      <div><strong>Total harga semua buku: Rp {{number_format($total_harga,0,',','.')}}</strong></div>
 
+
+
 @endsection
+    
 </body>
 </html>

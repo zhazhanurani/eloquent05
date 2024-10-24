@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="tgl_terbit">Tanggal Terbit</label>
-            <input type="text" class="form-control" name="tgl_terbit" value="{{$buku->tgl_terbit}}">
+            <input type="text" class="date form-control" name="tgl_terbit" value="{{$buku->tgl_terbit}}">
         </div>
         <button type="submit" class="btn btn-primary">Update Buku</button>
         <a href="{{'/buku'}}" class="btn btn-secondary">Kembali</a>
