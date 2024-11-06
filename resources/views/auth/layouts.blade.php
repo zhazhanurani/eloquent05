@@ -12,6 +12,9 @@
 <body>
 
     <nav class="navbar navbar-expand-lg bg-light">
+    @if(Auth::check() && Auth::user()->level == 'admin')
+    @endif
+
         <div class="container">
             <a class="navbar-brand" href="{{ URL('/') }}">Custom Login Register</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
